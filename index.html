@@ -2,21 +2,47 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Opening El Dorado…</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0A160E">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>El Dorado · Scuba Panda</title>
 <style>
-  html, body { margin: 0; height: 100%; background: #0A160E; color: #D4A72C; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
-  .wrap { min-height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px; box-sizing: border-box; }
-  h1 { font-size: 1.6rem; font-weight: 600; margin: 0 0 28px; }
-  .btn { display: inline-block; background: #D4A72C; color: #0A160E; text-decoration: none; font-weight: 700; font-size: 1.1rem; padding: 14px 28px; border-radius: 10px; }
-  .small { margin-top: 24px; font-size: 0.85rem; opacity: 0.8; max-width: 320px; }
+  :root { --bg: #0A160E; --gold: #D4A72C; --cream: #F5EFDC; --muted: rgba(245, 239, 220, 0.6); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--cream);
+    font-family: -apple-system, 'SF Pro Display', Inter, sans-serif; -webkit-font-smoothing: antialiased; }
+  body { background: radial-gradient(ellipse at 50% 30%, rgba(212, 167, 44, 0.12), transparent 60%), var(--bg); }
+  .wrap { min-height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: calc(32px + env(safe-area-inset-top)) 28px calc(24px + env(safe-area-inset-bottom)); }
+  .main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; max-width: 340px; }
+  .pyramid { width: 160px; height: auto; display: block; margin-bottom: 32px;
+    filter: drop-shadow(0 8px 24px rgba(212, 167, 44, 0.25)); }
+  h1 { font-weight: 700; font-size: 1.75rem; letter-spacing: -0.01em; margin: 0 0 20px; color: var(--cream); }
+  .loader { display: flex; gap: 8px; margin-bottom: 36px; }
+  .loader span { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); animation: pulse 1.2s ease-in-out infinite; }
+  .loader span:nth-child(2) { animation-delay: 0.2s; }
+  .loader span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes pulse { 0%, 100% { opacity: 0.25; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.15); } }
+  .btn { display: flex; align-items: center; justify-content: center; width: 100%; height: 52px; border-radius: 999px;
+    background: var(--gold); color: var(--bg); text-decoration: none; font-weight: 700; font-size: 1.05rem;
+    box-shadow: 0 6px 20px rgba(212, 167, 44, 0.3); -webkit-tap-highlight-color: transparent; }
+  .btn:active { transform: scale(0.98); opacity: 0.9; }
+  .small { margin: 20px 0 0; font-size: 0.85rem; line-height: 1.45; color: var(--muted); }
+  footer { margin-top: 32px; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(212, 167, 44, 0.6); }
+  @media (prefers-reduced-motion: reduce) { .loader span { animation: none; opacity: 0.8; } }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>Opening El Dorado…</h1>
-  <a class="btn" href="scubapanda-eldorado://enter">Open El Dorado</a>
-  <p class="small">Don't have it? Ask the Scuba Panda team for the El Dorado test app.</p>
+  <div class="main">
+    <img class="pyramid" src="pyramid.png" alt="El Dorado pyramid" width="160">
+    <h1>Entering El Dorado…</h1>
+    <div class="loader" aria-hidden="true"><span></span><span></span><span></span></div>
+    <a class="btn" href="scubapanda-eldorado://enter">Open El Dorado</a>
+    <p class="small">Don't have the app yet? Ask the Scuba Panda team for the El Dorado test build.</p>
+  </div>
+  <footer>Scuba Panda DAO</footer>
 </div>
 <script>
   window.onload = function () { window.location.href = 'scubapanda-eldorado://enter'; };
