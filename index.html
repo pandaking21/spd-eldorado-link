@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opening El Dorado…</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #0A160E; color: #D4A72C; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .wrap { min-height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px; box-sizing: border-box; }
+  h1 { font-size: 1.6rem; font-weight: 600; margin: 0 0 28px; }
+  .btn { display: inline-block; background: #D4A72C; color: #0A160E; text-decoration: none; font-weight: 700; font-size: 1.1rem; padding: 14px 28px; border-radius: 10px; }
+  .small { margin-top: 24px; font-size: 0.85rem; opacity: 0.8; max-width: 320px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Opening El Dorado…</h1>
+  <a class="btn" href="scubapanda-eldorado://enter">Open El Dorado</a>
+  <p class="small">Don't have it? Ask the Scuba Panda team for the El Dorado test app.</p>
+</div>
+<script>
+  window.onload = function () { window.location.href = 'scubapanda-eldorado://enter'; };
+</script>
+</body>
+</html>
